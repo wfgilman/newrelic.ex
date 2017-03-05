@@ -24,8 +24,8 @@ defmodule NewRelic.RepoTest do
 
   test "record_metrics records query time", %{log_entry: log_entry} do
     Repo.record_metrics(log_entry)
-    
-    [time] = get_metric_by_key({:db_query, @query})
+
+    [time] = get_metric_by_key({:db, @query})
 
     assert time == 1_000
   end
